@@ -1,0 +1,16 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="CCFlowAPISoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost/ccflow/WF/WorkOpt/CCFlowAPI.asmx"
+                binding="basicHttpBinding" bindingConfiguration="CCFlowAPISoap"
+                contract="FF.CCFlowAPISoap" name="CCFlowAPISoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

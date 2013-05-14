@@ -1,0 +1,722 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F55B885C-F362-4F08-BCAA-9CDEFE4A42AC}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WF</RootNamespace>
+    <AssemblyName>CCFlowDesigner</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>zh-CN;en-US;zh-Hant;ja;ja-JP;ru;ru-RU;</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>CCFlowDesigner.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>BP.App</SilverlightAppEntry>
+    <TestPageFileName>WFTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>true</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20901.0</ExpressionBlendVersion>
+    <SignManifests>false</SignManifests>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ColorPicker">
+      <HintPath>..\DLL\ColorPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="FJ.Core">
+      <HintPath>..\DLL\FJ.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Liquid.Menu">
+      <HintPath>..\DLL\Liquid.Menu.dll</HintPath>
+    </Reference>
+    <Reference Include="Liquid.TreeView">
+      <HintPath>..\DLL\Liquid.TreeView.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>..\DLL\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Silverlight.Controls">
+      <HintPath>..\DLL\Silverlight.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Silverlight.DataSet">
+      <HintPath>..\DLL\Silverlight.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.DomainServices.Client.Web, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Web.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\DLL\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminLogin.xaml.cs">
+      <DependentUpon>AdminLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ChildProcess.xaml.cs">
+      <DependentUpon>ChildProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="En30\const.cs" />
+    <Compile Include="En30\DBAccess.cs" />
+    <Compile Include="En30\DirectionComponent.cs" />
+    <Compile Include="En30\FlowNodeComponent.cs" />
+    <Compile Include="En30\PubLib\ButtonList.cs" />
+    <Compile Include="En30\PubLib\EnumLib.cs" />
+    <Compile Include="En30\PubLib\FlowAttr.cs" />
+    <Compile Include="En30\PubLib\NodeAttr.cs" />
+    <Compile Include="En30\Utility.cs" />
+    <Compile Include="Controls\FlowFrm.xaml.cs">
+      <DependentUpon>FlowFrm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrmNew.xaml.cs">
+      <DependentUpon>FrmNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrmRegTemLib.xaml.cs">
+      <DependentUpon>FrmRegTemLib.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoadingWindow.xaml.cs">
+      <DependentUpon>LoadingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SnapshotCapturer.cs" />
+    <Compile Include="Controls\ToolbarItem.cs" />
+    <Compile Include="Controls\NewFlowSort.xaml.cs">
+      <DependentUpon>NewFlowSort.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TabControlEx.cs" />
+    <Compile Include="Controls\TabItemEx.cs" />
+    <Compile Include="Controls\Toolbar.xaml.cs">
+      <DependentUpon>Toolbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolbarButton.xaml.cs">
+      <DependentUpon>ToolbarButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TreeNode.cs" />
+    <Compile Include="Designer\Container.xaml.cs">
+      <DependentUpon>Container.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ContainerMenu.xaml.cs">
+      <DependentUpon>ContainerMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FlowFrms.xaml.cs">
+      <DependentUpon>FlowFrms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\Frm.xaml.cs">
+      <DependentUpon>Frm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmExp.xaml.cs">
+      <DependentUpon>FrmExp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmImp.xaml.cs">
+      <DependentUpon>FrmImp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmLib.xaml.cs">
+      <DependentUpon>FrmLib.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmSortEdit.xaml.cs">
+      <DependentUpon>FrmSortEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\PubClass.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\Direction.xaml.cs">
+      <DependentUpon>Direction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\DirectionMenu.xaml.cs">
+      <DependentUpon>DirectionMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\DirectionTurnPoint.xaml.cs">
+      <DependentUpon>DirectionTurnPoint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ErrorTip.xaml.cs">
+      <DependentUpon>ErrorTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\FlowNode.xaml.cs">
+      <DependentUpon>FlowNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\FlowNodeMenu.xaml.cs">
+      <DependentUpon>FlowNodeMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\FlowNodePictureContainer.xaml.cs">
+      <DependentUpon>FlowNodePictureContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\FrmExp.xaml.cs">
+      <DependentUpon>FrmExp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\FrmImp.xaml.cs">
+      <DependentUpon>FrmImp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\IContainer.cs" />
+    <Compile Include="Designer\IElement.cs" />
+    <Compile Include="Designer\Label.xaml.cs">
+      <DependentUpon>Label.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\LabelMenu.xaml.cs">
+      <DependentUpon>LabelMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\Track.xaml.cs">
+      <DependentUpon>Track.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\Triangle.cs" />
+    <Compile Include="Glo.cs" />
+    <Compile Include="NodePicture\FenHeLiuNode.xaml.cs">
+      <DependentUpon>FenHeLiuNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NodePicture\SubThreadNode.xaml.cs">
+      <DependentUpon>SubThreadNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NodePicture\FenLiuNode.xaml.cs">
+      <DependentUpon>FenLiuNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NodePicture\IFlowNodePicture.cs" />
+    <Compile Include="NodePicture\OrdinaryNode.xaml.cs">
+      <DependentUpon>OrdinaryNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NodePicture\HeLiuNode.xaml.cs">
+      <DependentUpon>HeLiuNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NodePicture\VirtualNode.xaml.cs">
+      <DependentUpon>VirtualNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WSFtp\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SessionManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\.svn\all-wcprops" />
+    <None Include="Images\.svn\entries" />
+    <None Include="Images\.svn\format" />
+    <None Include="Images\.svn\prop-base\arrow.png.svn-base" />
+    <None Include="Images\.svn\prop-base\Folder_Icon.png.svn-base" />
+    <None Include="Images\.svn\prop-base\Form.png.svn-base" />
+    <None Include="Images\.svn\prop-base\FormNew.png.svn-base" />
+    <None Include="Images\.svn\prop-base\FTP_Download.png.svn-base" />
+    <None Include="Images\.svn\prop-base\FTP_Import.png.svn-base" />
+    <None Include="Images\.svn\prop-base\FTP_Preview.png.svn-base" />
+    <None Include="Images\.svn\prop-base\FTP_Server.png.svn-base" />
+    <None Include="Images\.svn\prop-base\loading.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ReleaseToFTP.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarCheck.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarDeleteFlow.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarDesignReport.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarEditFlow.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarGenerateModel.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolbarHelp.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarLoadModel.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarLogin.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarNewFlow.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarNewLabel.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarNewLine.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarNewNode.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarNewReturnLine.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarReleaseToFTP.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarRun.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarSave.png.svn-base" />
+    <None Include="Images\.svn\prop-base\ToolBarToggleFullScreen.png.svn-base" />
+    <None Include="Images\.svn\text-base\arrow.png.svn-base" />
+    <None Include="Images\.svn\text-base\Folder_Icon.png.svn-base" />
+    <None Include="Images\.svn\text-base\Form.png.svn-base" />
+    <None Include="Images\.svn\text-base\FormNew.png.svn-base" />
+    <None Include="Images\.svn\text-base\FTP_Download.png.svn-base" />
+    <None Include="Images\.svn\text-base\FTP_Import.png.svn-base" />
+    <None Include="Images\.svn\text-base\FTP_Preview.png.svn-base" />
+    <None Include="Images\.svn\text-base\FTP_Server.png.svn-base" />
+    <None Include="Images\.svn\text-base\loading.png.svn-base" />
+    <None Include="Images\.svn\text-base\ReleaseToFTP.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarCheck.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarDeleteFlow.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarDesignReport.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarEditFlow.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarGenerateModel.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolbarHelp.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarLoadModel.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarLogin.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarNewFlow.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarNewLabel.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarNewLine.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarNewNode.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarNewReturnLine.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarReleaseToFTP.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarRun.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarSave.png.svn-base" />
+    <None Include="Images\.svn\text-base\ToolBarToggleFullScreen.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\entries" />
+    <None Include="Images\MenuItem\.svn\format" />
+    <None Include="Images\MenuItem\.svn\prop-base\Check.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\deFrm.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Delete.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Down.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Download.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Edit.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\EditTable4.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Event.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\FlowDoc.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\FlowSheet.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\FlowSort.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\ForwardDo.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Grid.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Help.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\New.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\NewFlow_ccflow.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\NewFlow_Disk.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\NewLabel.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\NewLine.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\NewNode.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Open.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Post.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Property.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Refresh.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Report.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Run.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Setting.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Share.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Undo.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\up.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\upload.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\prop-base\Word.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Check.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\deFrm.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Delete.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Down.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Download.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Edit.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\EditTable4.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Event.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\FlowDoc.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\FlowSheet.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\FlowSort.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\ForwardDo.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Grid.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Help.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\New.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\NewFlow_ccflow.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\NewFlow_Disk.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\NewLabel.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\NewLine.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\NewNode.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Open.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Post.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Property.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Refresh.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Report.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Run.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Setting.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Share.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Undo.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\up.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\upload.png.svn-base" />
+    <None Include="Images\MenuItem\.svn\text-base\Word.png.svn-base" />
+    <None Include="Images\TreeMenu\.svn\entries" />
+    <None Include="Images\TreeMenu\.svn\format" />
+    <None Include="Images\TreeMenu\.svn\prop-base\FlowOrg.png.svn-base" />
+    <None Include="Images\TreeMenu\.svn\prop-base\Org.png.svn-base" />
+    <None Include="Images\TreeMenu\.svn\prop-base\System.png.svn-base" />
+    <None Include="Images\TreeMenu\.svn\text-base\FlowOrg.png.svn-base" />
+    <None Include="Images\TreeMenu\.svn\text-base\Org.png.svn-base" />
+    <None Include="Images\TreeMenu\.svn\text-base\System.png.svn-base" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+    <None Include="Service References\WSFtp\CYFtp.wsdl" />
+    <None Include="Service References\WSFtp\WF.WSFtp.FsFileItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSFtp\WF.WSFtp.FsItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WS\WebService.wsdl" />
+    <None Include="Service References\WS\WF.WS.UploadfileCCFormResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WS\WF.WS.UploadfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WS\WF.WS.UploadFileResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Resource Include="Images\Form.png" />
+    <Resource Include="Images\FormNew.png" />
+    <Resource Include="Images\Logo\CCFlow\LogoW.jpg" />
+    <Resource Include="Images\Logo\CCFlow\Welcome.jpg" />
+    <Resource Include="Images\arrow.png" />
+    <Content Include="Images\Folder_Icon.png" />
+    <Resource Include="Images\FTP_Download.png" />
+    <Resource Include="Images\FTP_Import.png" />
+    <Resource Include="Images\FTP_Preview.png" />
+    <Content Include="Images\FTP_Server.png" />
+    <Resource Include="Images\MenuItem\Share.png" />
+    <Resource Include="Images\Icons\CCFlow.jpg" />
+    <Resource Include="Images\Icons\Flow.jpg" />
+    <Resource Include="Images\ToolBarNewReturnLine.png" />
+    <Content Include="Library\System.Windows.Controls.Layout.Toolkit.dll" />
+    <Content Include="Library\System.Windows.Controls.Toolkit.dll" />
+    <None Include="Service References\WSFtp\CYFtp.disco" />
+    <None Include="Service References\WSFtp\configuration91.svcinfo" />
+    <None Include="Service References\WSFtp\configuration.svcinfo" />
+    <None Include="Service References\WSFtp\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WS\WebService.disco" />
+    <None Include="Service References\WS\configuration91.svcinfo" />
+    <None Include="Service References\WS\configuration.svcinfo" />
+    <None Include="Service References\WS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AdminLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FlowFrm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FrmNew.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FrmRegTemLib.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LoadingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NewFlowSort.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Toolbar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ToolbarButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\ChildProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Designer\Container.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\ContainerMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frm\FlowFrms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm\Frm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm\FrmExp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm\FrmImp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm\FrmLib.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frm\FrmSortEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\Direction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\DirectionMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\DirectionTurnPoint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\ErrorTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\FlowNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\FlowNodeMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\FlowNodePictureContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\FrmExp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Designer\FrmImp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Designer\Label.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\LabelMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\Track.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NodePicture\FenHeLiuNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NodePicture\SubThreadNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NodePicture\FenLiuNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NodePicture\OrdinaryNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NodePicture\HeLiuNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NodePicture\VirtualNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Text.en-us.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Text.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\image\Authorize.gif" />
+    <Resource Include="Images\MenuItem\FlowSort.png" />
+    <Resource Include="Images\MenuItem\Refresh.png" />
+    <Resource Include="Images\MenuItem\Property.png" />
+    <Resource Include="Images\MenuItem\Report.png" />
+    <Resource Include="Images\MenuItem\Post.png" />
+    <Content Include="Images\ToolBarHelp.png" />
+    <Content Include="Images\loading.png" />
+    <Resource Include="Images\MenuItem\deFrm.png" />
+    <Resource Include="Images\MenuItem\Delete.png" />
+    <Resource Include="Images\MenuItem\Down.png" />
+    <Resource Include="Images\MenuItem\Download.png" />
+    <Resource Include="Images\MenuItem\Edit.png" />
+    <Resource Include="Images\MenuItem\Event.png" />
+    <Resource Include="Images\MenuItem\ForwardDo.png" />
+    <Resource Include="Images\MenuItem\Grid.png" />
+    <Resource Include="Images\MenuItem\New.png" />
+    <Resource Include="Images\MenuItem\Undo.png" />
+    <Resource Include="Images\MenuItem\up.png" />
+    <Resource Include="Images\MenuItem\upload.png" />
+    <Resource Include="Images\MenuItem\Word.png" />
+    <Resource Include="Images\MenuItem\Open.png" />
+    <Resource Include="Images\MenuItem\NewLabel.png" />
+    <Resource Include="Images\MenuItem\NewLine.png" />
+    <Resource Include="Images\MenuItem\NewNode.png" />
+    <Resource Include="Images\MenuItem\Run.png" />
+    <Resource Include="Images\MenuItem\Check.png" />
+    <Resource Include="Images\MenuItem\EditTable4.png" />
+    <Resource Include="Images\MenuItem\NewFlow_ccflow.png" />
+    <Resource Include="Images\MenuItem\NewFlow_Disk.png" />
+    <Resource Include="Images\MenuItem\Help.png" />
+    <Resource Include="Images\MenuItem\FlowDoc.png" />
+    <Resource Include="Images\MenuItem\FlowSheet.png" />
+    <Resource Include="Images\MenuItem\Setting.png" />
+    <Content Include="Images\ReleaseToFTP.png" />
+    <Content Include="Images\ToolBarLogin.png" />
+    <Content Include="Images\ToolBarNewLabel.png" />
+    <Content Include="Images\ToolBarNewLine.png" />
+    <Content Include="Images\ToolBarNewNode.png" />
+    <Content Include="Images\ToolBarReleaseToFTP.png" />
+    <Content Include="Images\ToolBarToggleFullScreen.png" />
+    <Content Include="Images\ToolBarDesignReport.png" />
+    <Content Include="Images\ToolBarSave.png" />
+    <Content Include="Images\ToolBarCheck.png" />
+    <Content Include="Images\ToolBarDeleteFlow.png" />
+    <Content Include="Images\ToolBarEditFlow.png" />
+    <Content Include="Images\ToolBarGenerateModel.png" />
+    <Content Include="Images\ToolBarLoadModel.png" />
+    <Content Include="Images\ToolBarNewFlow.png" />
+    <Content Include="Images\ToolBarRun.png" />
+    <Resource Include="Images\TreeMenu\System.png" />
+    <Resource Include="Images\TreeMenu\Org.png" />
+    <Resource Include="Images\TreeMenu\FlowOrg.png" />
+    <Content Include="Resources\image\Authorize.ico" />
+    <Resource Include="Resources\image\CC.gif" />
+    <Content Include="Resources\image\cc.ico" />
+    <Resource Include="Resources\image\CH.gif" />
+    <Resource Include="Themes\Authorize.gif" />
+    <Resource Include="Themes\CH.gif" />
+    <Resource Include="Themes\CH.jpg" />
+    <Content Include="Themes\img1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Themes\img2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WSFtp\" />
+    <WCFMetadataStorage Include="Service References\WS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bin\" />
+    <Folder Include="Images\.svn\props\" />
+    <Folder Include="Images\.svn\tmp\prop-base\" />
+    <Folder Include="Images\.svn\tmp\props\" />
+    <Folder Include="Images\.svn\tmp\text-base\" />
+    <Folder Include="Images\Logo\SQ\" />
+    <Folder Include="Images\MenuItem\.svn\props\" />
+    <Folder Include="Images\MenuItem\.svn\tmp\prop-base\" />
+    <Folder Include="Images\MenuItem\.svn\tmp\props\" />
+    <Folder Include="Images\MenuItem\.svn\tmp\text-base\" />
+    <Folder Include="Images\TreeMenu\.svn\props\" />
+    <Folder Include="Images\TreeMenu\.svn\tmp\prop-base\" />
+    <Folder Include="Images\TreeMenu\.svn\tmp\props\" />
+    <Folder Include="Images\TreeMenu\.svn\tmp\text-base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Components\BP.SL\BP.SL.csproj">
+      <Project>{107F990E-3963-4D97-AAE4-8DCCBD24FCD0}</Project>
+      <Name>BP.SL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

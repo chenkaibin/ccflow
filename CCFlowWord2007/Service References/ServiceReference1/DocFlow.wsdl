@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetSettingByKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSettingByKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSettingByKeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p6" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DoTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunSQLReturnString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunSQLReturnStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RunSQLReturnStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunSQL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunSQLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RunSQLResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunSQLReturnTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunSQLReturnTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RunSQLReturnTableResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerOID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GenerOIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenerOIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSettingByKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSettingByKey" />
+  </wsdl:message>
+  <wsdl:message name="GetSettingByKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSettingByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="DoTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:DoType" />
+  </wsdl:message>
+  <wsdl:message name="DoTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:DoTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnStringSoapIn">
+    <wsdl:part name="parameters" element="tns:RunSQLReturnString" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnStringSoapOut">
+    <wsdl:part name="parameters" element="tns:RunSQLReturnStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLSoapIn">
+    <wsdl:part name="parameters" element="tns:RunSQL" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLSoapOut">
+    <wsdl:part name="parameters" element="tns:RunSQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnTableSoapIn">
+    <wsdl:part name="parameters" element="tns:RunSQLReturnTable" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnTableSoapOut">
+    <wsdl:part name="parameters" element="tns:RunSQLReturnTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerOIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerOID" />
+  </wsdl:message>
+  <wsdl:message name="GenerOIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerOIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSettingByKeyHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSettingByKeyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DoTypeHttpGetIn">
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="p1" type="s:string" />
+    <wsdl:part name="p2" type="s:string" />
+    <wsdl:part name="p3" type="s:string" />
+    <wsdl:part name="p4" type="s:string" />
+    <wsdl:part name="p5" type="s:string" />
+    <wsdl:part name="p6" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DoTypeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnStringHttpGetIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLHttpGetIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnTableHttpGetIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnTableHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GenerOIDHttpGetIn" />
+  <wsdl:message name="GenerOIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetSettingByKeyHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSettingByKeyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DoTypeHttpPostIn">
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="p1" type="s:string" />
+    <wsdl:part name="p2" type="s:string" />
+    <wsdl:part name="p3" type="s:string" />
+    <wsdl:part name="p4" type="s:string" />
+    <wsdl:part name="p5" type="s:string" />
+    <wsdl:part name="p6" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DoTypeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnStringHttpPostIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLHttpPostIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnTableHttpPostIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RunSQLReturnTableHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GenerOIDHttpPostIn" />
+  <wsdl:message name="GenerOIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:portType name="DocFlowSoap">
+    <wsdl:operation name="GetSettingByKey">
+      <wsdl:input message="tns:GetSettingByKeySoapIn" />
+      <wsdl:output message="tns:GetSettingByKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoType">
+      <wsdl:input message="tns:DoTypeSoapIn" />
+      <wsdl:output message="tns:DoTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnString">
+      <wsdl:input message="tns:RunSQLReturnStringSoapIn" />
+      <wsdl:output message="tns:RunSQLReturnStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunSQL">
+      <wsdl:input message="tns:RunSQLSoapIn" />
+      <wsdl:output message="tns:RunSQLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnTable">
+      <wsdl:input message="tns:RunSQLReturnTableSoapIn" />
+      <wsdl:output message="tns:RunSQLReturnTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerOID">
+      <wsdl:input message="tns:GenerOIDSoapIn" />
+      <wsdl:output message="tns:GenerOIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DocFlowHttpGet">
+    <wsdl:operation name="GetSettingByKey">
+      <wsdl:input message="tns:GetSettingByKeyHttpGetIn" />
+      <wsdl:output message="tns:GetSettingByKeyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoType">
+      <wsdl:input message="tns:DoTypeHttpGetIn" />
+      <wsdl:output message="tns:DoTypeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnString">
+      <wsdl:input message="tns:RunSQLReturnStringHttpGetIn" />
+      <wsdl:output message="tns:RunSQLReturnStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunSQL">
+      <wsdl:input message="tns:RunSQLHttpGetIn" />
+      <wsdl:output message="tns:RunSQLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnTable">
+      <wsdl:input message="tns:RunSQLReturnTableHttpGetIn" />
+      <wsdl:output message="tns:RunSQLReturnTableHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerOID">
+      <wsdl:input message="tns:GenerOIDHttpGetIn" />
+      <wsdl:output message="tns:GenerOIDHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DocFlowHttpPost">
+    <wsdl:operation name="GetSettingByKey">
+      <wsdl:input message="tns:GetSettingByKeyHttpPostIn" />
+      <wsdl:output message="tns:GetSettingByKeyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoType">
+      <wsdl:input message="tns:DoTypeHttpPostIn" />
+      <wsdl:output message="tns:DoTypeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnString">
+      <wsdl:input message="tns:RunSQLReturnStringHttpPostIn" />
+      <wsdl:output message="tns:RunSQLReturnStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunSQL">
+      <wsdl:input message="tns:RunSQLHttpPostIn" />
+      <wsdl:output message="tns:RunSQLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnTable">
+      <wsdl:input message="tns:RunSQLReturnTableHttpPostIn" />
+      <wsdl:output message="tns:RunSQLReturnTableHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerOID">
+      <wsdl:input message="tns:GenerOIDHttpPostIn" />
+      <wsdl:output message="tns:GenerOIDHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DocFlowSoap" type="tns:DocFlowSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSettingByKey">
+      <soap:operation soapAction="http://tempuri.org/GetSettingByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoType">
+      <soap:operation soapAction="http://tempuri.org/DoType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnString">
+      <soap:operation soapAction="http://tempuri.org/RunSQLReturnString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQL">
+      <soap:operation soapAction="http://tempuri.org/RunSQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnTable">
+      <soap:operation soapAction="http://tempuri.org/RunSQLReturnTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerOID">
+      <soap:operation soapAction="http://tempuri.org/GenerOID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DocFlowSoap12" type="tns:DocFlowSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSettingByKey">
+      <soap12:operation soapAction="http://tempuri.org/GetSettingByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoType">
+      <soap12:operation soapAction="http://tempuri.org/DoType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnString">
+      <soap12:operation soapAction="http://tempuri.org/RunSQLReturnString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQL">
+      <soap12:operation soapAction="http://tempuri.org/RunSQL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnTable">
+      <soap12:operation soapAction="http://tempuri.org/RunSQLReturnTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerOID">
+      <soap12:operation soapAction="http://tempuri.org/GenerOID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DocFlowHttpGet" type="tns:DocFlowHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetSettingByKey">
+      <http:operation location="/GetSettingByKey" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoType">
+      <http:operation location="/DoType" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnString">
+      <http:operation location="/RunSQLReturnString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQL">
+      <http:operation location="/RunSQL" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnTable">
+      <http:operation location="/RunSQLReturnTable" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerOID">
+      <http:operation location="/GenerOID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DocFlowHttpPost" type="tns:DocFlowHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetSettingByKey">
+      <http:operation location="/GetSettingByKey" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoType">
+      <http:operation location="/DoType" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnString">
+      <http:operation location="/RunSQLReturnString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQL">
+      <http:operation location="/RunSQL" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQLReturnTable">
+      <http:operation location="/RunSQLReturnTable" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerOID">
+      <http:operation location="/GenerOID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DocFlow">
+    <wsdl:port name="DocFlowSoap" binding="tns:DocFlowSoap">
+      <soap:address location="http://localhost/Flow/WF/DocFlow/DocFlow.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DocFlowSoap12" binding="tns:DocFlowSoap12">
+      <soap12:address location="http://localhost/Flow/WF/DocFlow/DocFlow.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DocFlowHttpGet" binding="tns:DocFlowHttpGet">
+      <http:address location="http://localhost/Flow/WF/DocFlow/DocFlow.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DocFlowHttpPost" binding="tns:DocFlowHttpPost">
+      <http:address location="http://localhost/Flow/WF/DocFlow/DocFlow.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

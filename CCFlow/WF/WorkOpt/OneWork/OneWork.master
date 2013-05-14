@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="CCFlow.WF.OneWork.WF_WorkOpt_OneWork" Codebehind="OneWork.master.cs" %>
+<%@ Register src="../../Pub.ascx" tagname="Pub" tagprefix="uc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="/WF/Comm/Style/Tabs.css" rel="stylesheet" type="text/css" />
+    <link href="/WF/Comm/Style/Table0.css" rel="stylesheet" type="text/css" />
+    <link href="/WF/Comm/Style/Table.css" rel="stylesheet" type="text/css" />
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+     <script type="text/javascript">
+         function RSize() {
+             if (document.body.scrollWidth > (window.screen.availWidth - 100)) {
+                 window.dialogWidth = (window.screen.availWidth - 100).toString() + "px"
+             } else {
+                 window.dialogWidth = (document.body.scrollWidth + 50).toString() + "px"
+             }
+
+             if (document.body.scrollHeight > (window.screen.availHeight - 70)) {
+                 window.dialogHeight = (window.screen.availHeight - 50).toString() + "px"
+             } else {
+                 window.dialogHeight = (document.body.scrollHeight + 115).toString() + "px"
+             }
+             window.dialogLeft = ((window.screen.availWidth - document.body.clientWidth) / 2).toString() + "px"
+             window.dialogTop = ((window.screen.availHeight - document.body.clientHeight) / 2).toString() + "px"
+         }
+    </script>
+    </asp:ContentPlaceHolder>
+</head>
+<body leftMargin=0    topMargin=0>
+    <form id="form1" runat="server">
+    <table border=1 width='90%' align=center >
+     <tr>
+     <td>
+        <uc1:Pub ID="Pub1" runat="server" />
+        </td>
+     </tr>
+    <tr>
+    <td width='100%' height='450px' valign=top>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+         </td>
+        </tr>
+   </table>
+    </form>
+</body>
+</html>

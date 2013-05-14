@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="Demo_QingJiaTiao_MasterPage" Codebehind="MasterPage.master.cs" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>请假流程案例</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    <link href="../ccflow.js" type="text/jscript" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+    <div align=center>
+    <table border=1 width='80%' >
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+    </table>
+    </div>
+
+    <div align=left>
+
+    <br>
+    <br>
+    <br>
+
+    <fieldset>
+    <legend><font color=green><b>测试信息测试信息(与表单应用无关):</b></font></legend>
+
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+     
+     <ul>
+     <li><a href='../../WF/Login.aspx'>切换用户</li>
+     <li><a href='../../' >测试主页</a></li>
+     </ul>
+
+     </fieldset>
+    </div>
+
+    </form>
+
+
+</body>
+</html>

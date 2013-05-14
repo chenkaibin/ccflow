@@ -1,0 +1,25 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="CCFormSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="CYFtpSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="WSDesignerSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost/ccflow/WF/Admin/XAP/CYFtp.asmx"
+                binding="basicHttpBinding" bindingConfiguration="CYFtpSoap"
+                contract="WSFtp.CYFtpSoap" name="CYFtpSoap" />
+            <endpoint address="http://localhost:1106/WF/Admin/XAP/WebService.asmx"
+                binding="basicHttpBinding" bindingConfiguration="WSDesignerSoap"
+                contract="WS.WSDesignerSoap" name="WSDesignerSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

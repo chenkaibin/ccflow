@@ -1,0 +1,65 @@
+﻿div#MainDiv
+{
+    top: 0;
+    left: 0;
+    width: auto;
+    text-align: center;
+    padding: 0px;
+    margin: 0px 3px 3px 3px;
+    background: #6293bb url(/Img/shadow.png) repeat-x left bottom;
+}
+
+div.wrapper
+{
+    padding: 3px;
+    margin: 12px;
+    background: #6293bb url(/Img/shadow.png) repeat-x bottom left;
+}
+divddd
+{
+    border-style: none double double none;
+    border-width: 1px;
+    border-color: #333333;
+}
+ 
+div#MainDiv ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+div#MainDiv li
+{
+    float: left;
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0 10px;
+    line-height: 1em;
+    background-image: url(/Img/line_white.gif);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+div#MainDiv li.last
+{
+    background: none;
+}
+
+div#MainDiv a,
+div#MainDiv a:link,
+div#MainDiv a:active,
+div#MainDiv a:visited {
+  display: inline-block;
+  /* hide from ie/mac \*/
+  display: block;
+  /* end hide */
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0;
+  padding: 7px 15px;
+  color: white;
+}
+div#MainDiv a:hover, div#MainDiv LI.Selected {
+  background-color: #3671a5;
+}
+ 

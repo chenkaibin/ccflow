@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <!-- 流程管理  -->
+  <Item No="Per" CH="个人信息" EN="Personal Information" RU="Personal Information"  JP="个人信息"  Url="Per.aspx" Img="./Img/Start.gif" Title="发起我能够发起的流程" />
+  <Item No="Auto" CH="授权" EN="Authorization" RU="Чтобы Bыполнитe"  JP="授权"  Url="Auto.aspx" Img="./Img/MyWork.gif" Enable="1" Title="等待我处理的工作。" />
+  <Item No="AutoLog" CH="授权方式登陆" EN="Authorization Login" RU="Authorization Login" JP="授权方式登陆"   Url="AutoLou.aspx" Img="./Img/Runing.gif" Enable="1" Title="我参与的工作，没有完成。" />
+  <Item111 No="Times" CH="时效分析" 
+        EN="Aging analysis" 
+        RU="В транзите" 
+        JP="时效分析"   Url="FNTimes.aspx" Img="./Img/Runing.gif" Enable="1" Title="我参与的工作，没有完成。" />
+
+  <!-- 系统语言 -->
+  <Lang No="CH" Name="简体中文" />
+  <Lang No="B5" Name="繁体中文" />
+  <Lang No="EN" Name="English" />
+  <Lang No="JP" Name="日本语" />
+  <Lang No="RU" Name="Русский" />
+</NewDataSet>
